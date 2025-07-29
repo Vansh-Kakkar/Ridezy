@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiArrowDownWideLine, RiUser3Fill } from 'react-icons/ri'
 
-const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel}) => {
+const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel, fare, selectVehicle}) => {
   return (
     <div>
         <h5 onClick={() => setVehiclePanelOpen(false)} className='p-1 text-center w-[93%] absolute top-0 '> <RiArrowDownWideLine className='text-3xl text-gray-200'/> </h5>
@@ -16,7 +16,11 @@ const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel}) => {
                   <h2 className='text-xl font-semibold'>₹193.20</h2>   
              </div>  */}
 
-             <div onClick={() => setConfirmRidePanel(true)} className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
+             <div onClick={() => {
+              setConfirmRidePanel(true)
+             selectVehicle('car')
+             }} 
+             className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
                   <img
                     className='h-12 w-12 object-contain'
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ7Kt54z31PkbdlqmqnyWnaCjvcLYRG-T_8Q&s"
@@ -34,11 +38,15 @@ const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel}) => {
                   </div>
 
                   <h2 className='text-lg font-bold text-gray-900 whitespace-nowrap ml-2'>
-                    ₹193.20
+                    ₹{fare.car}
                   </h2>
               </div>
 
-              <div onClick={() => setConfirmRidePanel(true)} className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
+              <div onClick={() => {
+                setConfirmRidePanel(true)
+               selectVehicle('motorcycle')
+                }}
+                 className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
                   <img
                     className='h-12 w-12 object-contain'
                     src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_538,w_956/v1698944322/assets/92/00189a-71c0-4f6d-a9de-1b6a85239079/original/UberMoto-India-Orange.png"
@@ -56,11 +64,15 @@ const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel}) => {
                   </div>
 
                   <h2 className='text-lg font-bold text-gray-900 whitespace-nowrap ml-2'>
-                    ₹65
+                    ₹{fare.motorcycle}
                   </h2>
               </div>
 
-               <div onClick={() => setConfirmRidePanel(true)} className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
+               <div onClick={() => {
+                setConfirmRidePanel(true)
+               selectVehicle('auto')
+               }} 
+               className='flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-300 active:border-gray-950 shadow-sm bg-white'>
                   <img
                     className='h-12 w-12 object-contain'
                     src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_368,w_552/v1648431773/assets/1d/db8c56-0204-4ce4-81ce-56a11a07fe98/original/Uber_Auto_558x372_pixels_Desktop.png"
@@ -78,7 +90,7 @@ const VehiclePanel = ({setVehiclePanelOpen, setConfirmRidePanel}) => {
                   </div>
 
                   <h2 className='text-lg font-bold text-gray-900 whitespace-nowrap ml-2'>
-                    ₹118.21
+                    ₹{fare.auto}
                   </h2>
               </div>
     </div>

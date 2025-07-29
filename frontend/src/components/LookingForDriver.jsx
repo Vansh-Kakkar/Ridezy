@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiArrowDownWideLine, RiUser3Fill, RiMapPin2Fill, RiCurrencyLine } from 'react-icons/ri'
 
-const LookingForDriver = ({setVehicleFound}) => {
+const LookingForDriver = ({setVehicleFound,vehicleType,pickup,destination,fare,createRide}) => {
   return (
      <div>
              <h5 onClick={() => setVehicleFound(false)} className='p-1 text-center w-[93%] absolute top-0 '> <RiArrowDownWideLine className='text-3xl text-gray-200'/> </h5>
@@ -13,20 +13,20 @@ const LookingForDriver = ({setVehicleFound}) => {
                        <RiMapPin2Fill className='text-lg'/>
                        <div>
                         <h3 className='text-lg font-medium'>562/11-R</h3>
-                        <p className='text-sm -mt-1 text-gray-600'>Civil lines,Rudrapur</p>
+                        <p className='text-sm -mt-1 text-gray-600'>{pickup}</p>
                        </div>
                     </div>
                     <div className='flex items-center gap-5 p-3 border-b-2'>
                        <RiMapPin2Fill className='text-lg'/>
                        <div>
                         <h3 className='text-lg font-medium'>562/11-R</h3>
-                        <p className='text-sm -mt-1 text-gray-600'>Civil lines,Rudrapur</p>
+                        <p className='text-sm -mt-1 text-gray-600'>{destination}</p>
                        </div>
                     </div>
                     <div className='flex items-center gap-5 p-3'>
                        <RiCurrencyLine />
                        <div>
-                        <h3 className='text-lg font-medium'> ₹193.20</h3>
+                        <h3 className='text-lg font-medium'> ₹{fare[vehicleType]}</h3>
                         <p className='text-sm -mt-1 text-gray-600'>Cash</p>
                        </div>
                     </div>
